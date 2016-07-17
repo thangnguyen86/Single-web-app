@@ -1,0 +1,70 @@
+﻿<div class="container" id="contContent">
+    <div class="row">
+        <div class="col-md-12" id="contactRow">
+            <div id="addressBar" class="col-lg-4 col-md-4">
+                <h2>Our Location</h2>
+                <address>
+                    <strong>Bakery shop name</strong><br />
+                    <p>Address</p>
+                </address>
+            </div>
+            <div id="mapcontainer" class="col-md-7 col-sm-8 col-xs-16">
+
+            </div>
+            
+        </div>
+    </div>
+    <div class="row"  id="commentForm">
+        <div class="col-lg-11 col-md-11 col-sm-10 col-xs-10" style="width:100%">
+            <form role="form" class="form-horizontal">
+                <div >
+                    <h3><strong>Drop us a message</strong></h3>
+              
+                </div>
+                <div class="form-group">    
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" placeholder="First Name" required />
+                    </div>             
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" placeholder="Last Name"  />
+                    </div>
+                    <div class="col-md-4 input-group">
+                        <span class="input-group-addon">@</span>
+                        <input type="text" class="form-control" placeholder="Your Email" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 ">
+          
+                        <textarea placeholder="Your Message" class="input-block-level form-control" rows="5" />
+                    </div>
+                    
+                </div>
+                <div style="width:100%;text-align:center">
+                    <button class="btn btn-primary" style="width:10%">Send</button>
+                </div>
+               
+            </form>
+        </div>
+       
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=initialize"></script>
+<script>
+    function initialize() {
+        var location = new google.maps.LatLng(51.503454, -0.119562);
+        var mapOptions = {
+            center: location,
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var marker = new google.maps.Marker({
+            position: location,
+            map: mapOptions,
+        });
+        var map = new google.maps.Map(document.getElementById('mapcontainer'), mapOptions);
+        marker.setMap(map);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+</script>
